@@ -1,15 +1,15 @@
 class MovieController < ApplicationController 
 
     get '/movies' do 
-
+        erb :'/movies/movies'
     end 
 
     get '/movies/new' do 
-
+        erb :'/movies/new'
     end 
 
     post '/movies' do 
-
+        binding.pry
     end
 
     get '/movies/:id' do 

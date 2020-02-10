@@ -30,7 +30,7 @@ class UserController < ApplicationController
 
     get '/success' do 
         if logged_in?
-            erb :success
+            erb :'/users/success'
         else 
             redirect "/login"
         end 
