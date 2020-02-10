@@ -4,12 +4,12 @@
     <hr>
     <ul>
     <% @movies.each do |movie|%>
-        <li> Movie: <%= movie.id %></li>
        <li> Title: <%= movie.title%> </li>
        <li> Rating: <%= movie.rating%> </li>
        <li> Comments: <%= movie.comments%> </li>
        <li> Watch Date: <%= movie.date%> </li>
        <li> Watch Date: <%= movie.user_id%> </li>
+       <a class="btn btn-primary" id ="success-btn" href="/movies/<%= movie.id %>/edit" role="button">Edit Movie</a>
        <hr>
     <%end%>
     </ul>

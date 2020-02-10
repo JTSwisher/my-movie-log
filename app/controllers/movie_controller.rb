@@ -40,7 +40,8 @@ class MovieController < ApplicationController
     end 
 
     get '/movies/:id/edit' do 
-
+        @movie = current_user.movies.find(params[:id])
+        erb :'/movies/edit'
     end 
 
     patch '/movies/:id' do 
