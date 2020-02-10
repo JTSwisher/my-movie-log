@@ -1,5 +1,18 @@
 <div class="container">
-    <h1>Movies</h1>
+    <h1>Hello <%= Helpers.current_user(session).username%>!</h1>
+    <h2>Your Movies</h2>
+    <hr>
+    <ul>
+    <% @movies.each do |movie|%>
+        <li> Movie: <%= movie.id %></li>
+       <li> Title: <%= movie.title%> </li>
+       <li> Rating: <%= movie.rating%> </li>
+       <li> Comments: <%= movie.comments%> </li>
+       <li> Watch Date: <%= movie.date%> </li>
+       <li> Watch Date: <%= movie.user_id%> </li>
+       <hr>
+    <%end%>
+    </ul>
 </div>
 
 

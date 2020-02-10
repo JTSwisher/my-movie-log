@@ -1,0 +1,12 @@
+<div class="container">
+<h1>Hello <%= Helpers.current_user(session).username%>!</h1>
+
+    <ul>
+       <li> Title: <%= @movie.title%> </li>
+       <li> Rating: <%= @movie.rating%> </li>
+       <li> Comments: <%= @movie.comments%> </li>
+       <li> Watch Date: <%= @movie.date%> </li>
+       <li> User: <%= @movie.user_id%> </li>
+    </ul>
+
+</div>
