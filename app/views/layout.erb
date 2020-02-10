@@ -20,7 +20,7 @@
   <body>
     
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"> 
-      <a class="navbar-brand" href="#">My Movie Log</a>
+      <a class="navbar-brand" href="/">My Movie Log</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,8 +34,13 @@
             <a>Find Movies</a>
           </li>
         </ul>
-        <!-- ERB based on session Id to display sign in or sign out button -->
-        <a class="btn btn-primary" href="/login" role="button">Sign In</a>
+        <!-- ERB based on session ID to display sign in or sign out button -->
+        <% if Helpers.current_user.logged_in?%>
+         <a class="btn btn-primary" href="/login" role="button">Sign In</a> 
+        <% else %>
+         <a class="btn btn-primary" href="/logout" role="button">Log Out</a> 
+        <% end %>
+
       </div>
     </nav>
 
