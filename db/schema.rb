@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20200210152138) do
 
+  create_table "movies", force: :cascade do |t|
+    t.string  "title"
+    t.integer "rating"
+    t.text    "comments"
+    t.date    "date"
+    t.integer "user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
