@@ -35,10 +35,10 @@
           </li>
         </ul>
         <!-- ERB based on session ID to display sign in or sign out button -->
-        <% if Helpers.current_user.logged_in?%>
-         <a class="btn btn-primary" href="/login" role="button">Sign In</a> 
-        <% else %>
+        <% if Helpers.logged_in?(session) %>
          <a class="btn btn-primary" href="/logout" role="button">Log Out</a> 
+        <% else %>
+         <a class="btn btn-primary" href="/login" role="button">Sign In</a> 
         <% end %>
 
       </div>
