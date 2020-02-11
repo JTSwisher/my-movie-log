@@ -44,14 +44,25 @@ class MovieController < ApplicationController
         erb :'/movies/edit'
     end 
 
-    patch '/movies/:id' do 
-
+    patch '/movies/:id' do
+        if  logged_in?
+            if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
+                redirect "/movies/<% params[:id] %>/edit"
+            else 
+                @movie = current_user.movies.find(params[:id])
+                @movie.title = params[:title]
+                @movie.rating = params[:rating]
+                @movie.comments = params[:comments]
+                @movie.date = params[:date]
+                @movie.save
+                redirect "/movies/#{@movie.id}"
+            end 
+        else 
+            redirect '/login'
+        end 
     end 
 
-    put '/movies/:id' do 
-
-    end 
-
+   
     delete '/movies/:id' do 
 
     end 

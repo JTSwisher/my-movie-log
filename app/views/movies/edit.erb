@@ -1,12 +1,48 @@
 <div class="container">
 
+    <h1>Edit Movie</h1>
+    <hr>
+    <h3> Title: <%= @movie.title%> </h3>
+    <h3> Rating: <%= @movie.rating%> </h3>
+    <h3> Comments: <%= @movie.comments%> </h3>
+    <h3> Watch Date: <%= @movie.date%> </h3>
+    <h3> User: <%= @movie.user_id%> </h3>
 
-    <ul>
-       <li> Title: <%= @movie.title%> </li>
-       <li> Rating: <%= @movie.rating%> </li>
-       <li> Comments: <%= @movie.comments%> </li>
-       <li> Watch Date: <%= @movie.date%> </li>
-       <li> User: <%= @movie.user_id%> </li>
-    </ul>
+    <form action="/movies/<%= @movie.id %>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <div class="form-group col-md-3">
+            <label for="title">New Title:</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="rating">New Rating (1-10):</label>
+            <select class="form-control" id="rating" name="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="comments">New Comments:</label>
+            <input type="text" class="form-control" id="comments" name="comments">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="date">New Date:</label>
+            <input type="date" class="form-control" id="date" name="date">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" value="submit">Save Changes</button>
+    </form><br>
+    <a class="btn btn-primary" id ="cancel-btn" href="/movies" role="button">Cancel</a>
+    <a class="btn btn-primary" id ="delete-btn" href="/movies/<%= @movie.id %>/edit" role="button">Delete Movie</a>
 
 </div>

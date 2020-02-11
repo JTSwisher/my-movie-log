@@ -1,18 +1,12 @@
 <div class="container">
-    <h1>Hello <%= Helpers.current_user(session).username%>!</h1>
-    <h2>Your Movies</h2>
+    <h1>Your Movies</h1>
     <hr>
-    <ul>
     <% @movies.each do |movie|%>
-       <li> Title: <%= movie.title%> </li>
-       <li> Rating: <%= movie.rating%> </li>
-       <li> Comments: <%= movie.comments%> </li>
-       <li> Watch Date: <%= movie.date%> </li>
-       <li> Watch Date: <%= movie.user_id%> </li>
-       <a class="btn btn-primary" id ="success-btn" href="/movies/<%= movie.id %>/edit" role="button">Edit Movie</a>
+       <h2> Title: <%= movie.title%></h2><br>
+       <a class="btn btn-primary" id ="view-btn" href="/movies/<%= movie.id %>" role="button">View Movie</a>
        <hr>
     <%end%>
-    </ul>
+
 </div>
 
 
