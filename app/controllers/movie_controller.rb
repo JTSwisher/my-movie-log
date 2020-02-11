@@ -47,7 +47,7 @@ class MovieController < ApplicationController
     patch '/movies/:id' do
         if  logged_in?
             if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
-                redirect "/movies/<% params[:id] %>/edit"
+                redirect "/movies"
             else 
                 @movie = current_user.movies.find(params[:id])
                 @movie.title = params[:title]
@@ -64,7 +64,13 @@ class MovieController < ApplicationController
 
    
     delete '/movies/:id' do 
-
+        if logged_in?
+            @movie = current_user.movies.find(params[:id])
+            @movie.delete 
+            redirect "/movies"
+        else 
+            redirect '/login'
+        end 
     end 
 
 end 

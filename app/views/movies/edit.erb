@@ -42,7 +42,11 @@
         
         <button type="submit" class="btn btn-primary" value="submit">Save Changes</button>
     </form><br>
-    <a class="btn btn-primary" id ="cancel-btn" href="/movies" role="button">Cancel</a>
-    <a class="btn btn-primary" id ="delete-btn" href="/movies/<%= @movie.id %>/edit" role="button">Delete Movie</a>
 
+    <a class="btn btn-primary" id ="cancel-btn" href="/movies" role="button">Cancel</a><br>
+
+    <form action="/movies/<%= @movie.id %>" method="POST">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <button type ="submit" class="btn btn-danger" value="submit">Delete Movie</button>
+    </form>
 </div>
