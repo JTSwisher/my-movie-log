@@ -1,10 +1,16 @@
 <div class="container">
     <h1>Your Movies</h1>
     <hr>
-    <% @movies.each do |movie|%>
-       <h2> Title: <%= movie.title%></h2><br>
-       <a class="btn btn-primary" id ="view-btn" href="/movies/<%= movie.id %>" role="button">View Movie</a>
-       <hr>
+
+    <%if @movies.size == 0%>
+        <h1>You do not currently have any movies in your account.</h1>
+        <a class="btn btn-primary col-md-3" id ="success-btn" href="/movies/new" role="button">Add Movie</a>
+    <%else%>
+        <% @movies.each do |movie|%>
+        <h2> Title: <%= movie.title%></h2><br>
+        <a class="btn btn-primary" id ="view-btn" href="/movies/<%= movie.id %>" role="button">View Movie</a>
+        <hr>
+        <%end%>
     <%end%>
 
 </div>
