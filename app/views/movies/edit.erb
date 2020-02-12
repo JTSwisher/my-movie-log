@@ -2,22 +2,18 @@
 
     <h1>Edit Movie</h1>
     <hr>
-    <h3> Title: <%= @movie.title%> </h3>
-    <h3> Rating: <%= @movie.rating%> </h3>
-    <h3> Comments: <%= @movie.comments%> </h3>
-    <h3> Watch Date: <%= @movie.date%> </h3>
-    <h3> User: <%= @movie.user_id%> </h3>
 
     <form action="/movies/<%= @movie.id %>" method="POST">
-        <input id="hidden" type="hidden" name="_method" value="patch">
+          <input id="hidden" type="hidden" name="_method" value="patch">
+
         <div class="form-group col-md-3">
-            <label for="title">New Title:</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= @movie.title %>"required>
         </div>
 
         <div class="form-group col-md-3">
-            <label for="rating">New Rating (1-10):</label>
-            <select class="form-control" id="rating" name="rating">
+            <label for="rating">Rating (1-10):</label>
+            <select class="form-control" id="rating" name="rating" value="<%= @movie.rating%>" required>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -32,27 +28,23 @@
         </div>
 
         <div class="form-group col-md-3">
-            <label for="comments">New Comments:</label>
-            <input type="text" class="form-control" id="comments" name="comments">
+            <label for="comments">Comments:</label>
+            <textarea type="text" class="form-control" id="comments" name="comments" rows="3" required><%= @movie.comments%></textarea>
         </div>
         <div class="form-group col-md-3">
-            <label for="date">New Date:</label>
-            <input type="date" class="form-control" id="date" name="date">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date" name="date" value="<%= @movie.date%>" required>
         </div>
         
-        <button type="submit" class="btn btn-primary" value="submit">Save Changes</button>
-    </form><br>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a class="btn btn-primary col-md-1" id ="success-btn" href="/account" role="button">Cancel</a>
 
-    <div class="row">
-        <div class="edit-button">
-            <a class="btn btn-primary"  href="/movies" role="button">Cancel</a><br>
-        </div>
+    </form>
 
-        <div class="edit-button">    
-            <form action="/movies/<%= @movie.id %>" method="POST">
-                <input id="hidden" type="hidden" name="_method" value="delete">
-                <button type ="submit" class="btn btn-danger" value="submit">Delete Movie</button>
-            </form>
-        </div>
-    </div>
+      
+    <form action="/movies/<%= @movie.id %>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type ="submit" class="btn btn-danger" value="submit">Delete Movie</button>
+    </form>
+       
 </div>
