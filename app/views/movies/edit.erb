@@ -43,10 +43,16 @@
         <button type="submit" class="btn btn-primary" value="submit">Save Changes</button>
     </form><br>
 
-    <a class="btn btn-primary" id ="cancel-btn" href="/movies" role="button">Cancel</a><br>
+    <div class="row">
+        <div class="edit-button">
+            <a class="btn btn-primary"  href="/movies" role="button">Cancel</a><br>
+        </div>
 
-    <form action="/movies/<%= @movie.id %>" method="POST">
-          <input id="hidden" type="hidden" name="_method" value="delete">
-          <button type ="submit" class="btn btn-danger" value="submit">Delete Movie</button>
-    </form>
+        <div class="edit-button">    
+            <form action="/movies/<%= @movie.id %>" method="POST">
+                <input id="hidden" type="hidden" name="_method" value="delete">
+                <button type ="submit" class="btn btn-danger" value="submit">Delete Movie</button>
+            </form>
+        </div>
+    </div>
 </div>

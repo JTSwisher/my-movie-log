@@ -3,7 +3,7 @@
     <hr>
 
     <%if @movies.size == 0%>
-        <h1>You do not currently have any movies in your account.</h1>
+        <h2>You do not currently have any movies in your account.</h2>
         <a class="btn btn-primary col-md-3" id ="success-btn" href="/movies/new" role="button">Add Movie</a>
     <%else%>
         <% @movies.each do |movie|%>

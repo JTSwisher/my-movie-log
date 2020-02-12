@@ -32,11 +32,21 @@
     color: black;
     font-family: 'Oswald', sans-serif;
   }
+
+  .edit-button {
+    margin: 10px;
+  }
+
+  }
   .navbar-brand {
     font-family: 'Oswald', sans-serif;
   }
 
   #success-btn {
+    margin: 10px;
+  }
+
+  #cancel-btn {
     margin: 10px;
   }
 
