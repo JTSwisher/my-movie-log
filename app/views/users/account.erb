@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Hello, <%= Helpers.current_user(session).username%>!</h1>
+  <h1>Hello, <%= @user.username%>!</h1>
 
   <a class="btn btn-primary col-md-3" id ="success-btn" href="/movies" role="button">My Movies</a>
   <a class="btn btn-primary col-md-3" id ="success-btn" href="/movies/new" role="button">Add Movie</a>
