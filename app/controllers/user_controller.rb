@@ -9,11 +9,18 @@ class UserController < ApplicationController
           redirect to '/signup'
         else
           @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-          @user.save
-          session[:user_id] = @user.id
-          redirect to '/account'
+          if @user.save
+            session[:user_id] = @user.id
+            redirect to '/account'
+          else 
+            redirect to '/signup_failure'
+          end
         end
     end
+
+    get '/signup_failure' do 
+        erb :'/users/signup_failure'
+    end 
 
     get '/login' do 
         erb :'/users/login'
