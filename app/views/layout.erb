@@ -14,20 +14,16 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
 
     <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
   </head>
 
   <body>
 
     <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light"> 
 
-        <% if Helpers.logged_in?(session) %>
-          <a class="navbar-brand" href="/account">My Movie Log</a>
-        <% else %>
-          <a class="navbar-brand" href="/">My Movie Log</a>
-        <% end %>
+        <a class="navbar-brand" href="/">My Movie Log</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -55,18 +51,32 @@
           <% else %>
           <a class="btn btn-primary" id ="success-btn" href="/signup" role="button">Sign Up</a> 
           <% end %>
-
-          <!-- ERB based on active session to display sign in or sign out button -->
+        
           <% if Helpers.logged_in?(session) %>
-          <a class="btn btn-danger" id ="success-btn" href="/logout" role="button">Log Out</a> 
-          <% else %>
-          <a class="btn btn-primary" id ="success-btn" href="/login" role="button">Sign In</a> 
-          <% end %>
+          <div class="nav-item" id="user-greeting">
+            <h4>Hello, <%= Helpers.current_user(session).username%></h4>
+          </div>
 
+          <div class="nav-item">
+            <a class="btn btn-danger" id ="success-btn" href="/logout" role="button">Log Out</a> 
+            <% else %>
+            <a class="btn btn-primary" id ="success-btn" href="/login" role="button">Sign In</a> 
+          <% end %>
+          </div>
+  
         </div>
       </nav>
+    
 
-    <%= yield %>
+      <%= yield %>
+
+    
+
+     <footer id="footer">
+
+      <p>© Copyright 2020 MyMovieLog</p>
+
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

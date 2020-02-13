@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-lg">
     
     <form action="/movies/api" method="POST">
-        <label for="search">Search Again:</label>
-        <input type="text" id="search" name="keyword" required>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <label for="search" >Search:</label>
+        <input type="text" name="keyword" required>
+        <button type="submit" class="btn btn-primary" id="main-button">Submit</button>
    </form><br>
    <hr>
 
@@ -15,7 +15,7 @@
     <%  else %>
         <%  response["results"].each do |movie| %>
 
-        <img src="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>" alt="Movie Poster Image">
+        <img src="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>" alt="Movie Poster Image" id="poster-results">
         <form action="/movies" method="POST">
 
             <div class="form-group col-md-3">
@@ -52,7 +52,7 @@
                 <textarea type="text" class="form-control" id="comments" name="comments" rows="3" required></textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" id="main-button">Save</button>
             <a class="btn btn-primary" id ="success-btn" href="/account" role="button">Cancel</a>
 
         </form><br>
