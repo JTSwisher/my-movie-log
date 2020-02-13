@@ -26,7 +26,6 @@ class MovieController < ApplicationController
         url = "https://api.themoviedb.org/3/search/movie?api_key=7dd629038911a7d3dcf84371891ee64e&query=#{@keyword}"
         response = HTTParty.get(url) 
         reponse.parsed_response 
-
     end 
 
     post '/movies' do 
