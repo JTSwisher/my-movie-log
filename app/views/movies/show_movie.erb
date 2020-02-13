@@ -1,11 +1,11 @@
 <div class="container">
-    
+       <img src="<%= @movie.poster %>%" alt="Movie Poster Image">
        <h1><%= @movie.title%> </h1>
        <hr>
-       <h2> Rating: <%= @movie.rating%> </h2>
+       <h2> Release Date: <%= @movie.date%> </h2>
+       <h2> My Rating: <%= @movie.rating%> </h2>
        <h2> Comments: <%= @movie.comments%> </h2>
-       <h2> Watch Date: <%= @movie.date%> </h2>
-       <h2> User: <%= @movie.user_id%> </h2>
+       
     
 <a class="btn btn-primary" id ="view-btn" href="/movies/<%= @movie.id %>/edit" role="button">Edit Movie</a>
 

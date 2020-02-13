@@ -1,41 +1,65 @@
-   html, body {
-     height: 100%;
-     width: 100%;
-     background: linear-gradient(-45deg, #23a6d5, #23d5ab);
-     animation: gradient 40s ease infinite;
-     background-repeat:no-repeat;
-   }
-   
-  
+html, body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, #23a6d5, #23d5ab ) no-repeat center center fixed;
+  animation: gradient 20s ease infinite;
+  background-repeat:no-repeat;
+}
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  .container {
-    margin-top: 200px;
-    position: relative;
-    color: black;
-    font-family: 'Oswald', sans-serif;
-  }
-    
-  .navbar-brand {
-    font-family: 'Oswald', sans-serif;
-  }
 
-  #success-btn {
-    margin: 10px;
-  }
+@keyframes gradient {
+ 0% {
+   background-position: 0% 50%;
+ }
+ 50% {
+   background-position: 100% 50%;
+ }
+ 100% {
+   background-position: 0% 50%;
+ }
+}
 
-  #cancel-btn {
-    margin: 10px;
-  }
+.container {
+ margin-top: 100px;
+ margin-left: 100px;
+ margin-right: 100px;
+ margin-bottom: 50px;
+ position: relative;
+ color: black;
+ font-family: 'Oswald', sans-serif;
+ background: white;
+ border-radius: 25px;
+ padding-top: 20px;
+ padding-left: 30px;
+ padding-bottom: 20px;
+}
 
+#account {
+ margin-top: 400px;
+ padding-top: 30px;
+ padding-bottom: 30px;
+ background:white;
+ border-radius: 20px;
+ width: 500px;
+ margin-left: 400px;
+ margin-right: 400px;
+
+}
+
+.account {
+ position: relative;
+ text-align: center;
+ font-family: 'Oswald', sans-serif;
+}
+ 
+.navbar-brand {
+ font-family: 'Oswald', sans-serif;
+}
+
+#success-btn {
+ margin: 10px;
+}
+
+#cancel-btn {
+ margin: 10px;
+}

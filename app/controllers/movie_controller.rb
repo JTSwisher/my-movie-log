@@ -17,12 +17,24 @@ class MovieController < ApplicationController
         end 
     end 
 
+    post '/movies/api' do 
+        @keyword = params[:keyword]
+        erb :'/movies/results'
+    end 
+
+    get 'results/:keyword' do 
+        url = "https://api.themoviedb.org/3/search/movie?api_key=7dd629038911a7d3dcf84371891ee64e&query=#{@keyword}"
+        response = HTTParty.get(url) 
+        reponse.parsed_response 
+
+    end 
+
     post '/movies' do 
         if logged_in? 
             if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
                 redirect :'/movies/new'
             else 
-            @movie = current_user.movies.build(title: params[:title], rating: params[:rating], comments: params[:comments], date: params[:date])
+            @movie = current_user.movies.build(title: params[:title], rating: params[:rating], comments: params[:comments], date: params[:date], poster: params[:poster])
                 if @movie.save
                     redirect "/movies/#{@movie.id}"
                 else 
@@ -64,17 +76,21 @@ class MovieController < ApplicationController
 
     patch '/movies/:id' do
         if  logged_in?
-            if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
-                redirect "/movies"
-            else 
-                @movie = current_user.movies.find(params[:id])
-                @movie.title = params[:title]
-                @movie.rating = params[:rating]
-                @movie.comments = params[:comments]
-                @movie.date = params[:date]
-                @movie.save
-                redirect "/movies/#{@movie.id}"
-            end 
+            if @movie = current_user.movies.find_by(id: params[:id])
+                if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
+                    redirect "/movies"
+                else 
+                    @movie = current_user.movies.find(params[:id])
+                    @movie.title = params[:title]
+                    @movie.rating = params[:rating]
+                    @movie.comments = params[:comments]
+                    @movie.date = params[:date]
+                    @movie.save
+                    redirect "/movies/#{@movie.id}"
+                end
+            else
+                redirect '/error'
+            end      
         else 
             redirect '/login'
         end 
@@ -83,9 +99,12 @@ class MovieController < ApplicationController
    
     delete '/movies/:id' do 
         if logged_in?
-            @movie = current_user.movies.find(params[:id])
-            @movie.delete 
-            redirect "/movies"
+            if @movie = current_user.movies.find_by(id: params[:id])
+                @movie.delete 
+                redirect "/movies"
+            else 
+                redirect '/error'
+            end 
         else 
             redirect '/login'
         end 
