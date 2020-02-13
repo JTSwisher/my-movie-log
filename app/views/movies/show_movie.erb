@@ -2,9 +2,9 @@
        <img src="<%= @movie.poster %>%" alt="Movie Poster Image">
        <h1><%= @movie.title%> </h1>
        <hr>
-       <h2> Release Date: <%= @movie.date%> </h2>
-       <h2> My Rating: <%= @movie.rating%> </h2>
-       <h2> Comments: <%= @movie.comments%> </h2>
+       <h3> Release Date: <%= @movie.date%> </h3>
+       <h3> My Rating: <%= @movie.rating%> </h3>
+       <h3> Comments: <%= @movie.comments%> </h3>
        
     
 <a class="btn btn-primary" id ="view-btn" href="/movies/<%= @movie.id %>/edit" role="button">Edit Movie</a>
