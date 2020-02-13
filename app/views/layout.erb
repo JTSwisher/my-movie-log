@@ -50,11 +50,17 @@
             </li>
           </ul>
 
+          <% if Helpers.logged_in?(session) %>
+          
+          <% else %>
+          <a class="btn btn-primary" id ="success-btn" href="/signup" role="button">Sign Up</a> 
+          <% end %>
+
           <!-- ERB based on active session to display sign in or sign out button -->
           <% if Helpers.logged_in?(session) %>
-          <a class="btn btn-danger" href="/logout" role="button">Log Out</a> 
+          <a class="btn btn-danger" id ="success-btn" href="/logout" role="button">Log Out</a> 
           <% else %>
-          <a class="btn btn-primary" href="/login" role="button">Sign In</a> 
+          <a class="btn btn-primary" id ="success-btn" href="/login" role="button">Sign In</a> 
           <% end %>
 
         </div>
