@@ -2,7 +2,7 @@
     
     <form action="/movies/api" method="POST">
         <label for="search">Search Again:</label>
-        <input type="text" id="search" name="keyword">
+        <input type="text" id="search" name="keyword" required>
         <button type="submit" class="btn btn-primary">Submit</button>
    </form><br>
    <hr>
@@ -10,50 +10,54 @@
 
     <%  url = "https://api.themoviedb.org/4/search/movie?api_key=7dd629038911a7d3dcf84371891ee64e&query=#{@keyword}&page=1&per_page=5" %>
     <%  response = HTTParty.get(url) %>
-    <%  response["results"].each do |movie| %>
+    <%  if response["total_results"] == 0%>
+            <h3>Your search did not return any results. Please try again.</h3>
+    <%  else %>
+        <%  response["results"].each do |movie| %>
 
-    <img src="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>" alt="Movie Poster Image">
-    <form action="/movies" method="POST">
+        <img src="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>" alt="Movie Poster Image">
+        <form action="/movies" method="POST">
 
-        <div class="form-group col-md-3">
-            <input type="hidden"  class="form-control"  name="poster"  value="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>">
-        </div>
+            <div class="form-group col-md-3">
+                <input type="hidden"  class="form-control"  name="poster"  value="https://image.tmdb.org/t/p/w200<%=movie["poster_path"]%>">
+            </div>
 
-        <div class="form-group col-md-3">
-            <input type="text" readonly class="form-control-plaintext" id="title" name="title" value="<%= movie["original_title"]%>" >
-        </div>
+            <div class="form-group col-md-3">
+                <input type="text" readonly class="form-control-plaintext" id="title" name="title" value="<%= movie["original_title"]%>" >
+            </div>
 
-        <div class="form-group col-md-3">
-            <label for="date">Release Date:</label>
-            <input type="text" readonly class="form-control-plaintext" id="date" name="date" value="<%= movie["release_date"]%>" >
-        </div>
+            <div class="form-group col-md-3">
+                <label for="date">Release Date:</label>
+                <input type="text" readonly class="form-control-plaintext" id="date" name="date" value="<%= movie["release_date"]%>" >
+            </div>
 
-        <div class="form-group col-md-3">
-            <label for="rating">Rating (1-10):</label>
-            <select class="form-control" id="rating" name="rating" required>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-        </div>
+            <div class="form-group col-md-3">
+                <label for="rating">Rating (1-10):</label>
+                <select class="form-control" id="rating" name="rating" required>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
 
-        <div class="form-group col-md-3">
-            <label for="comments">Comments:</label>
-            <textarea type="text" class="form-control" id="comments" name="comments" rows="3" required></textarea>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a class="btn btn-primary" id ="success-btn" href="/account" role="button">Cancel</a>
+            <div class="form-group col-md-3">
+                <label for="comments">Comments:</label>
+                <textarea type="text" class="form-control" id="comments" name="comments" rows="3" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-primary" id ="success-btn" href="/account" role="button">Cancel</a>
 
-    </form><br>
-    <hr>
+        </form><br>
+        <hr>
+        <% end %>
     <% end %>
 </div>
 
