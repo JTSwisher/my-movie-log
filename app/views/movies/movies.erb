@@ -7,10 +7,10 @@
         <a class="btn btn-primary col-md-3" id ="success-btn" href="/movies/new" role="button">Add Movie</a>
     <%else%>
         <% @movies.each do |movie|%>
-        <a href="/movies/<%= movie.id %>"><img src="<%= movie.poster %>" alt="Movie Poster"></a>
-        <h2><%= movie.title%></h2><br>
-        <a class="btn btn-primary" id ="view-btn" href="/movies/<%= movie.id %>" role="button">View Movie</a>
-        <hr>
+            <a href="/movies/<%= movie.id %>"><img src="<%= movie.poster %>" alt="Movie Poster"></a>
+            <h2><%= movie.title%></h2><br>
+            <a class="btn btn-primary" id ="view-btn" href="/movies/<%= movie.id %>" role="button">View Movie</a>
+            <hr>
         <%end%>
     <%end%>
 
