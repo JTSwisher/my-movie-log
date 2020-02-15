@@ -1,4 +1,4 @@
-My Movie Log
+# My Movie Log
 
 My movie Log, allows a user to search for movies and store movies to their account. The user can proivde a rating for the movie and any additional comments they would like to add. 
 
@@ -10,7 +10,7 @@ My movie Log, allows a user to search for movies and store movies to their accou
 
 ##### Install
 ```
-(https://postgresapp.com/ "Postgres App)
+(https://postgresapp.com/ "Postgres App")
 ```
 
 ### Installing
@@ -44,9 +44,10 @@ If the last two commands work Postgres was setup successfully
 $ shotgun
 ```
 
-Navigate to 
-
-End with an example of getting some data out of the system or using it for a little demo
+Navigate to:
+```
+http://localhost:9393/
+```
 
 ## Running the tests
 
