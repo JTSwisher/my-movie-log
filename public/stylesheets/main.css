@@ -53,6 +53,10 @@ html, body {
   padding-left: 1%;
 }
 
+#success-btn {
+ margin: 10px;
+}
+
 #cancel-btn {
  margin: 10px;
 }
