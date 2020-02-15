@@ -4,14 +4,14 @@ My movie Log, allows a user to search for movies and store movies to their accou
 
 ## Working Prototype
 
-(https://my-movie-log.herokuapp.com "My Movie Log")
+[ My movie Log](https://my-movie-log.herokuapp.com)
 
 ### Prerequisites
 
 ##### Install
-```
-(https://postgresapp.com/ "Postgres App")
-```
+
+[Postgres]("https://postgresapp.com/")
+
 
 ### Installing
 
@@ -28,12 +28,12 @@ $ bundle install
 
 You will need the postgress app isntalled. Make sure the server is running.
 
-Create the database.
+Create the DB.
 ```
-$ rake db:createa
+$ rake db:create
 ```
 
-Migrate database
+Migrate DB.
 ```
 $ rake db:migrate
 ```
@@ -49,25 +49,6 @@ Navigate to:
 http://localhost:9393/
 ```
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
