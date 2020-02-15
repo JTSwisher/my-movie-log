@@ -10,7 +10,7 @@ My movie Log, allows a user to search for movies and store movies to their accou
 
 ##### Install
 
-[Postgres]("https://postgresapp.com/")
+[Postgres](https://postgresapp.com)
 
 
 ### Installing
