@@ -53,7 +53,7 @@ http://localhost:9393/
 
 * Front-end: HTML5, CSS3, Ruby-ERB
 * Back-end: Ruby, Sinatra, PostgreSQL
-* Development ENV: Heoku
+* Development ENV: Heroku
 
 ## Contributing
 
