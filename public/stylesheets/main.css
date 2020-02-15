@@ -28,7 +28,7 @@ html, body {
   margin-top: 100px;
   margin-bottom: 50px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 20px;
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -41,7 +41,7 @@ html, body {
   margin-top: 100px;
   margin-bottom: 50px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 20px;
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -53,15 +53,13 @@ html, body {
   padding-left: 1%;
 }
 
-#success-btn {
- margin: 10px;
-}
-
 #cancel-btn {
  margin: 10px;
 }
 
 #main-button {
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
   margin-left: 1.4%;
 }
 

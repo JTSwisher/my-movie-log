@@ -36,15 +36,15 @@
             <textarea type="text" class="form-control" id="comments" name="comments" rows="3" required><%= @movie.comments%></textarea>
         </div>
         
-        <button type="submit" class="btn btn-primary col-md-1" id="main-button">Save Changes</button>
-        <a class="btn btn-primary col-md-1" id ="success-btn" href="/movies" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary col-md-2" id="main-button">Save Changes</button>
+        <a class="btn btn-primary col-md-2" id ="main-button" href="/movies" role="button">Cancel</a>
 
     </form>
 
       
     <form action="/movies/<%= @movie.id %>" method="POST">
         <input id="hidden" type="hidden" name="_method" value="delete">
-        <button type ="submit" class="btn btn-danger col-md-1" id="main-button" value="submit">Delete Movie</button>
+        <button type ="submit" class="btn btn-danger col-md-2" id="main-button" value="submit">Delete Movie</button>
     </form>
        
 </div>
