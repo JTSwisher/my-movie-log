@@ -22,12 +22,6 @@ class MovieController < ApplicationController
         erb :'/movies/results'
     end 
 
-    get 'results/:keyword' do 
-        url = "https://api.themoviedb.org/3/search/movie?api_key=7dd629038911a7d3dcf84371891ee64e&query=#{@keyword}"
-        response = HTTParty.get(url) 
-        reponse.parsed_response 
-    end 
-
     post '/movies' do 
         if logged_in? 
             if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
