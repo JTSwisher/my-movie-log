@@ -1,29 +1,23 @@
 class MovieController < ApplicationController 
 
     get '/movies' do
-        if logged_in?
+        active_login
           @movies = current_user.movies.all
           erb :'movies/movies'
-        else
-          redirect '/login'
-        end
     end 
 
     get '/movies/new' do 
-        if logged_in?
+        active_login
             erb :'/movies/new'
-        else 
-            redirect '/login'
-        end 
     end 
 
     post '/movies/api' do 
-        @keyword = params[:keyword]
+        @results = Movie.fetch(params[:keyword])
         erb :'/movies/results'
     end 
 
     post '/movies' do 
-        if logged_in? 
+        active_login
             if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
                 redirect :'/movies/new'
             else 
@@ -34,33 +28,24 @@ class MovieController < ApplicationController
                     redirect '/movies/new'
                 end 
             end
-        else 
-            redirect '/login' 
-        end 
     end
 
     get '/movies/:id' do 
-        if logged_in?
+        active_login
             if @movie = current_user.movies.find_by(id: params[:id])
                 erb :'/movies/show_movie'
             else 
                 redirect'/error'
             end 
-        else 
-            redirect '/login' 
-        end 
     end 
 
     get '/movies/:id/edit' do 
-        if logged_in?
+        active_login
             if @movie = current_user.movies.find_by(id: params[:id])
                 erb :'/movies/edit'
             else 
                 redirect '/error'
             end 
-        else 
-            redirect '/login'
-        end 
     end 
 
     get '/error' do 
@@ -68,7 +53,7 @@ class MovieController < ApplicationController
     end 
 
     patch '/movies/:id' do
-        if  logged_in?
+        active_login
             if @movie = current_user.movies.find_by(id: params[:id])
                 if params[:title] == "" || params[:rating] == "" || params[:comments] == "" || params[:date] == ""
                     redirect "/movies"
@@ -84,23 +69,28 @@ class MovieController < ApplicationController
             else
                 redirect '/error'
             end      
-        else 
-            redirect '/login'
-        end 
+    
     end 
 
    
     delete '/movies/:id' do 
-        if logged_in?
+        active_login
             if @movie = current_user.movies.find_by(id: params[:id])
                 @movie.delete 
                 redirect "/movies"
             else 
                 redirect '/error'
             end 
-        else 
-            redirect '/login'
+    end 
+
+    helpers do 
+
+        def active_login
+            if !logged_in?
+                redirect '/login'
+            end 
         end 
+
     end 
 
 end 
