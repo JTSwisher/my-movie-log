@@ -5,7 +5,7 @@ class MovieController < ApplicationController
           @movies = current_user.movies.all
           erb :'movies/movies'
         else
-          redirect to '/login'
+          redirect '/login'
         end
     end 
 

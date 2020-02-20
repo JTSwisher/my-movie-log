@@ -4,7 +4,8 @@
     <hr>
     <img src="<%= @movie.poster %>%" alt="Movie Poster" id="poster-results">
     <form action="/movies/<%= @movie.id %>" method="POST">
-          <input id="hidden" type="hidden" name="_method" value="patch">
+        
+        <input id="hidden" type="hidden" name="_method" value="patch">
 
         <div class="form-group col-md-3">
             <input type="text" readonly class="form-control-plaintext" id="title" name="title" value="<%= @movie.title %>"required>
