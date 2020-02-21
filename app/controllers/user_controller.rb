@@ -37,12 +37,10 @@ class UserController < ApplicationController
     end 
 
     get '/account' do 
-        if logged_in?
+        active_login
             @user = User.find(session[:user_id])
             erb :'/users/account'
-        else 
-            redirect "/login"
-        end 
+        
     end 
 
     get '/failure' do 

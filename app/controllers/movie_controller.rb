@@ -83,14 +83,5 @@ class MovieController < ApplicationController
             end 
     end 
 
-    helpers do 
-
-        def active_login
-            if !logged_in?
-                redirect '/login'
-            end 
-        end 
-
-    end 
 
 end 
